@@ -1,7 +1,7 @@
 version: '2'
 services:
     app:
-        container_name: "phpmentors.security-bundle.app"
+        container_name: "phpmentors.composite-password-authentication-bundle.app"
         image: "phpmentors/php-app:php53"
         volumes:
             - ".:/var/app"
