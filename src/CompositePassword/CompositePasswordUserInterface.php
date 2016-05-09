@@ -12,9 +12,7 @@
 
 namespace PHPMentors\CompositePasswordAuthenticationBundle\CompositePassword;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-
-interface CompositePasswordUserInterface extends UserInterface
+interface CompositePasswordUserInterface
 {
     /**
      * @param array $compositePassword
