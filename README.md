@@ -16,8 +16,16 @@ A Symfony bundle for authentication using composite password
 
 First, add the dependency to `phpmentors/composite-password-authentication-bundle` into your `composer.json` file as the following:
 
+**Stable version:**
+
 ```
-composer require phpmentors/composite-password-authentication-bundle "~1.0@dev"
+composer require phpmentors/composite-password-authentication-bundle "1.0.*"
+```
+
+**Development version:**
+
+```
+composer require phpmentors/composite-password-authentication-bundle "~1.1@dev"
 ```
 
 Second, add `PHPMentorsCompositePasswordAuthenticationBundle` into your bundles to register in `AppKernel::registerBundles()` as the following:
