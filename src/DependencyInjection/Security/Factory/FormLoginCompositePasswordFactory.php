@@ -13,6 +13,7 @@
 namespace PHPMentors\CompositePasswordAuthenticationBundle\DependencyInjection\Security\Factory;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginFactory;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
@@ -22,7 +23,7 @@ class FormLoginCompositePasswordFactory extends FormLoginFactory
     /**
      * {@inheritdoc}
      */
-    public function getKey()
+    public function getKey(): string
     {
         return 'form-login-composite-password';
     }
@@ -30,11 +31,11 @@ class FormLoginCompositePasswordFactory extends FormLoginFactory
     /**
      * {@inheritdoc}
      */
-    protected function createAuthProvider(ContainerBuilder $container, $id, $config, $userProviderId)
+    protected function createAuthProvider(ContainerBuilder $container, string $id, array $config, string $userProviderId): string
     {
         $provider = 'phpmentors_composite_password_authentication.composite_password_dao_authentication_provider.'.$id;
         $container
-            ->setDefinition($provider, new DefinitionDecorator('phpmentors_composite_password_authentication.composite_password_dao_authentication_provider'))
+            ->setDefinition($provider, new ChildDefinition('phpmentors_composite_password_authentication.composite_password_dao_authentication_provider'))
             ->replaceArgument(0, new Reference($userProviderId))
             ->replaceArgument(1, new Reference('security.user_checker.'.$id))
             ->replaceArgument(2, $id)

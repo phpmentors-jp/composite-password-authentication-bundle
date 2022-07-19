@@ -22,8 +22,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('phpmentors_composite_password_authentication');
+        $treeBuilder = new TreeBuilder('phpmentors_composite_password_authentication');
+        $treeBuilder->getRootNode();
 
         return $treeBuilder;
     }
